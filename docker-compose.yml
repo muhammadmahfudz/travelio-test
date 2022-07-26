@@ -1,0 +1,16 @@
+version: '3.0'
+services:
+    payment:
+        image: go.v1.15.8.book:v1.0.0
+        stdin_open: true
+        tty: true
+        container_name: find-book
+        restart: always
+        environment:
+            TZ: "Asia/Jakarta"
+        ports:
+            - 8090:8090
+        volumes:
+            - ./log/access.log:/app/cmd/access.log
+            - /etc/hosts:/etc/hosts
+            - .env:/app/.env
